@@ -3,15 +3,56 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Neighboorhood Map Project</title>
+        <title>Neighborhood Map Project - Medellin, Colombia</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo">Neighboorhood Map Project - Medellin, Colombia</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section id="map-container">
+                <div class="row">
+                    <div class="col s12 m3 map-filters">
+                        Search...
+                    </div>
+                    <div class="col s12 m9 google-map">
+                        <div id="map"></div>
+                    </div>
+                </div>            
+        </section>
+
+        <footer>
+            <div class="copyright">
+                &copy; Copyright 2017 - Made in Colombia
+            </div>
+        </footer>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&callback=initMap"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/main.min.js"></script>
     </body>
 </html>
