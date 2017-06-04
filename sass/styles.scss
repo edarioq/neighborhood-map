@@ -8,15 +8,32 @@ nav {
         font-size: 1rem;
         margin-left: 25px;
     }
+    .active {
+        color: $green;
+    }
 }
 
 #map-container {
     height: calc(100vh - 64px - 64px);
+    input {
+        color: #f1f1f1;
+        border-bottom: 1px solid #f1f1f1;
 
+        &::placeholder {
+            color: #f1f1f1;
+        }
+    }
+    button {
+        background-color: $orange;
+        &:hover {
+            background-color: $green;
+        }
+    }
     .map-filters {
         height: calc(100vh - 64px - 64px);
         color: #fff;
         background-color: $blue;
+        padding: 25px;
     }
 
     .google-map {
