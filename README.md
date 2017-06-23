@@ -39,18 +39,18 @@ Code is properly separated based upon `Knockout` best practices (follow an `MVVM
 ### Asynchronous Data Usage
 1. Application utilizes the Google Maps API and at least one non-Google third-party API. Refer to <a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_blank">this documentation</a>.
 
-* All data requests are retrieved in an asynchronous manner.
+2. All data requests are retrieved in an asynchronous manner.
 
-2. Data requests that fail are handled gracefully using common fallback techniques (i.e. `AJAX` erro` or fail methods). 'Gracefully' means the user isn’t left wondering why a component isn’t working. If an `API` doesn’t load there should be some visible indication on the page (an alert box is ok) that it didn’t load. ***Note***: You do not need to handle cases where the user goes offline.
+3. Data requests that fail are handled gracefully using common fallback techniques (i.e. `AJAX` erro` or fail methods). 'Gracefully' means the user isn’t left wondering why a component isn’t working. If an `API` doesn’t load there should be some visible indication on the page (an alert box is ok) that it didn’t load. ***Note***: You do not need to handle cases where the user goes offline.
 
 ### Location Details Functionality
 1. Functionality providing additional data about a location is provided and sourced from a 3rd party API. Information can be provided either in the marker’s `infoWindow`, or in an `HTML` element in the `DOM` (a sidebar, the list view, etc.)
 
-* Provide attribution for the source of additional data. For example, if using Foursquare, indicate somewhere in your UI and in your README that you are using Foursquare data.
+2. Provide attribution for the source of additional data. For example, if using Foursquare, indicate somewhere in your UI and in your README that you are using Foursquare data.
 
-2. Application runs without errors.
+3. Application runs without errors.
 
-3. Functionality is presented in a usable and responsive manner.
+4. Functionality is presented in a usable and responsive manner.
 
 ### Documentation
 1. A `README` file is included detailing all steps required to successfully run the application.
@@ -59,5 +59,5 @@ Code is properly separated based upon `Knockout` best practices (follow an `MVVM
 
 3. Code is formatted with consistent, logical, and easy-to-read formatting as described in the <a href="http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html" target="_blank">Udacity JavaScript Style Guide</a>.
 
-* If build tools (such as Gulp or Grunt) are used, both source and production code are submitted in the same repository in separate directories. These directories are usually named `src` and `dist` respectively.
+4. If build tools (such as Gulp or Grunt) are used, both source and production code are submitted in the same repository in separate directories. These directories are usually named `src` and `dist` respectively.
 
