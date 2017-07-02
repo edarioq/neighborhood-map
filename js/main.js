@@ -13,3 +13,16 @@ function initMap() {
 
 }
 
+function model() {
+    this.firstName = ko.observable("Edgar");
+    this.lastName = ko.observable("Quintero");
+
+    this.fullName = ko.computed(function() {
+        return this.firstName() + " " + this.lastName();
+    }, this);
+}
+
+
+
+ko.applyBindings(new model());
+
