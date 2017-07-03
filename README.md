@@ -2,7 +2,17 @@
 Welcome! This is one of the final projects for Udacity's FEND (Front End Developer Nanodegree) program.
 
 ## Installation and Running
-`cd` to the project directory first, then run `npm install` to install all dependencies, then`gulp` to launch the app in your browser.
+`cd` to the project directory and run `npm install` to install all dependencies, then`gulp`to launch the app in your browser. For a production ready version, use `gulp build`. Example:
+
+```
+cd /Users/user-name/Development/project-name-goes-here
+gulp
+```
+or
+```
+cd /Users/user-name/Development/project-name-goes-here
+gulp build
+```
 
 ## Features
 This project showcases some popular areas in Medellin, Colombia. It includes:
