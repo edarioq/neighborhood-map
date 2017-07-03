@@ -19,17 +19,22 @@
         <header>
             <nav>
                 <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo">Neighboorhood Map Project - Medellin, Colombia</a>
+                <h1>
+                    <a href="/" class="brand-logo">
+                         <i class="large material-icons">language</i>
+                         Neighboorhood Map Project<span> - Medellin, Colombia</span>
+                    </a>
+                </h1>
                 <a href="#" data-activates="mobile-demo" class="button-collapse">
                     <i class="material-icons">menu</i>
                 </a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="active" href="index.html">Home</a></li>
+                        <li><a class="active" href="/">Home</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>
@@ -40,11 +45,46 @@
         <section id="map-container">
                 <div class="row">
                     <div class="col s12 m3 map-filters">
-                        <p>My name is: <span data-bind="text: fullName"></span></p>
-                        <input data-bind="value: firstName" type="text" placeholder="Look for a place...">
-                          <button class="btn waves-effect waves-light" type="submit" name="action">Search
-                            <i class="material-icons right">search</i>
-                        </button>
+                        <div class="text-input">
+                            <h2>Enter a location</h2>
+                            <form>
+                                <input type="text" placeholder="Search...">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="list-view">
+                            <h2>Filter by Types</h2>
+                            <form>
+                                <div class="list-view-set">
+                                    <input checked class="filled-in" id="bars" name="bars" type="checkbox">
+                                    <label for="bars">Bars</label>
+                                </div>
+                                <div class="list-view-set">
+                                    <input checked class="filled-in" id="coffee-shops" name="coffee-shops" type="checkbox">
+                                    <label for="coffee-shops">Coffee Shops</label>
+                                </div>
+                                <div class="list-view-set">
+                                    <input checked class="filled-in" id="coworking" name="coworking" type="checkbox">
+                                    <label for="coworking">Coworking Spaces</label>
+                                </div>
+
+                                <div class="list-view-set">
+                                    <input checked class="filled-in" id="gyms" name="gyms" type="checkbox">
+                                    <label for="gyms">Gyms</label>
+                                </div>
+
+                                <div class="list-view-set">
+                                    <input checked class="filled-in" id="parks" name="parks" type="checkbox">
+                                    <label for="parks">Parks</label>
+                                </div>
+                                <div class="list-view-set">
+                                    <input checked class="filled-in" id="restaurants" name="restaurants" type="checkbox">
+                                    <label for="restaurants">Restaurants</label>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     <div class="col s12 m9 google-map">
                         <div id="map"></div>

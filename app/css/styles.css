@@ -6686,6 +6686,9 @@ nav {
   background-color: #4A4A4A;
   width: 100%;
   height: 64px; }
+  nav h1 {
+    margin: 0;
+    padding: 0; }
   nav .brand-logo {
     font-size: 1rem;
     margin-left: 25px; }
@@ -6700,15 +6703,36 @@ nav {
     #map-container input::placeholder {
       color: #f1f1f1; }
   #map-container button {
-    width: 100%;
-    background-color: #F6A623; }
+    max-width: 250px;
+    background-color: #f1f1f1;
+    color: #4990E2; }
     #map-container button:hover {
-      background-color: #50E3C2; }
+      color: #4A4A4A;
+      background-color: #F6A623; }
   #map-container .map-filters {
     height: calc(100vh - 64px - 64px);
     color: #fff;
     background-color: #4990E2;
     padding: 25px; }
+    #map-container .map-filters h2 {
+      font-size: 1.7rem; }
+    #map-container .map-filters input::placeholder {
+      font-style: italic; }
+    #map-container .map-filters .text-input {
+      margin: 12px 0; }
+    #map-container .map-filters .list-view {
+      margin: 12px 0;
+      overflow-y: scroll; }
+      #map-container .map-filters .list-view .list-view-set {
+        display: block; }
+        #map-container .map-filters .list-view .list-view-set label {
+          font-size: 1.2rem;
+          color: #fff; }
+        #map-container .map-filters .list-view .list-view-set input[type=checkbox].filled-in:not(:checked) + label:after {
+          border-color: #fff; }
+        #map-container .map-filters .list-view .list-view-set input[type="checkbox"].filled-in:checked + label:after {
+          border-color: #50E3C2;
+          background-color: #50E3C2; }
   #map-container .google-map {
     height: calc(100vh - 64px - 64px);
     background-color: #f1f1f1;
@@ -6729,9 +6753,15 @@ footer {
     text-align: center; }
 
 @media screen and (max-width: 600px) {
+  nav .brand-logo {
+    margin-left: auto; }
+    nav .brand-logo span {
+      display: none; }
+  #map-container {
+    height: auto; }
+  .row {
+    margin-bottom: 0; }
   #map .map-filters {
     height: 10vh; }
   #map .google-map {
-    height: calc(90vh - 64px - 64px); }
-  footer .copyright {
-    transform: translateY(25%); } }
+    height: calc(90vh - 64px - 64px); } }

@@ -1,4 +1,4 @@
-// Mobile nav
+// Views
 $(".button-collapse").sideNav();
 
 // Google Maps
@@ -8,21 +8,12 @@ function initMap() {
     var uluru = { lat: 6.2377022, lng: -75.5780272 };
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
-        center: uluru
+        center: uluru,
+        scrollwheel: false,
     });
 
 }
 
-function model() {
-    this.firstName = ko.observable("Edgar");
-    this.lastName = ko.observable("Quintero");
+// Knockout
 
-    this.fullName = ko.computed(function() {
-        return this.firstName() + " " + this.lastName();
-    }, this);
-}
-
-
-
-ko.applyBindings(new model());
 
