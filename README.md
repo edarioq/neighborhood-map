@@ -5,12 +5,12 @@ Welcome! This is one of the final projects for Udacity's FEND (Front End Develop
 `cd` to the project directory and run `npm install` to install all dependencies, then`gulp`to launch the app in your browser. For a production ready version, use `gulp build`. Example:
 
 ```
-cd /Users/user-name/Development/project-name-goes-here
+cd ~/Development/project-name
+npm install
 gulp
 ```
-or
+Then to have a production ready build, use:
 ```
-cd /Users/user-name/Development/project-name-goes-here
 gulp build
 ```
 
