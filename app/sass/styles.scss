@@ -33,7 +33,7 @@ nav {
         color: $blue;
         &:hover {
             color: $black;
-            background-color: $orange;
+            background-color: $green;
         }
     }
     .map-filters {
@@ -67,6 +67,19 @@ nav {
                     background-color: $green;
                 }
             }
+        }
+        .clear-locations {
+            max-width: 250px;
+            margin-top: 25px;
+            background-color: $gray;
+            color: $blue;
+            &:hover {
+                color: $black;
+                background-color: $green;
+            }
+        }
+        hr {
+            margin-top: 50px;
         }
     }
 

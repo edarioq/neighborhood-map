@@ -6708,7 +6708,7 @@ nav {
     color: #4990E2; }
     #map-container button:hover {
       color: #4A4A4A;
-      background-color: #F6A623; }
+      background-color: #50E3C2; }
   #map-container .map-filters {
     height: calc(100vh - 64px - 64px);
     color: #fff;
@@ -6733,6 +6733,16 @@ nav {
         #map-container .map-filters .list-view .list-view-set input[type="checkbox"].filled-in:checked + label:after {
           border-color: #50E3C2;
           background-color: #50E3C2; }
+    #map-container .map-filters .clear-locations {
+      max-width: 250px;
+      margin-top: 25px;
+      background-color: #f1f1f1;
+      color: #4990E2; }
+      #map-container .map-filters .clear-locations:hover {
+        color: #4A4A4A;
+        background-color: #50E3C2; }
+    #map-container .map-filters hr {
+      margin-top: 50px; }
   #map-container .google-map {
     height: calc(100vh - 64px - 64px);
     background-color: #f1f1f1;
