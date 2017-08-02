@@ -52,31 +52,20 @@ nav {
         }
         .list-view {
             margin: 12px 0;
-            overflow-y: scroll;
-            .list-view-set {
-                display: block;
-                label {
-                    font-size: 1.2rem;
-                    color:#fff;
-                }
-                input[type=checkbox].filled-in:not(:checked) + label:after {
-                    border-color: #fff;
-                }
-                input[type="checkbox"].filled-in:checked + label:after {
-                    border-color: $green;
-                    background-color: $green;
-                }
+            overflow-y: scroll;         
+            display: block;
+            label {
+                font-size: 1.2rem;
+                color:#fff;
             }
-        }
-        .clear-locations {
-            max-width: 250px;
-            margin-top: 25px;
-            background-color: $gray;
-            color: $blue;
-            &:hover {
-                color: $black;
+            input[type=checkbox].filled-in:not(:checked) + label:after {
+                border-color: #fff;
+            }
+            input[type="checkbox"].filled-in:checked + label:after {
+                border-color: $green;
                 background-color: $green;
             }
+            
         }
         hr {
             margin-top: 50px;

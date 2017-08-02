@@ -6722,24 +6722,15 @@ nav {
       margin: 12px 0; }
     #map-container .map-filters .list-view {
       margin: 12px 0;
-      overflow-y: scroll; }
-      #map-container .map-filters .list-view .list-view-set {
-        display: block; }
-        #map-container .map-filters .list-view .list-view-set label {
-          font-size: 1.2rem;
-          color: #fff; }
-        #map-container .map-filters .list-view .list-view-set input[type=checkbox].filled-in:not(:checked) + label:after {
-          border-color: #fff; }
-        #map-container .map-filters .list-view .list-view-set input[type="checkbox"].filled-in:checked + label:after {
-          border-color: #50E3C2;
-          background-color: #50E3C2; }
-    #map-container .map-filters .clear-locations {
-      max-width: 250px;
-      margin-top: 25px;
-      background-color: #f1f1f1;
-      color: #4990E2; }
-      #map-container .map-filters .clear-locations:hover {
-        color: #4A4A4A;
+      overflow-y: scroll;
+      display: block; }
+      #map-container .map-filters .list-view label {
+        font-size: 1.2rem;
+        color: #fff; }
+      #map-container .map-filters .list-view input[type=checkbox].filled-in:not(:checked) + label:after {
+        border-color: #fff; }
+      #map-container .map-filters .list-view input[type="checkbox"].filled-in:checked + label:after {
+        border-color: #50E3C2;
         background-color: #50E3C2; }
     #map-container .map-filters hr {
       margin-top: 50px; }
