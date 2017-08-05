@@ -47,28 +47,18 @@ nav {
         input::placeholder {
             font-style: italic;
         }
-        .text-input {
+        .text-input-container {
             margin: 12px 0;
         }
-        .list-view {
+        .list-view-container {
             margin: 12px 0;
             overflow-y: scroll;         
             display: block;
-            label {
-                font-size: 1.2rem;
-                color:#fff;
+            ul {
+                li {
+                    list-style-type: bullet;
+                }
             }
-            input[type=checkbox].filled-in:not(:checked) + label:after {
-                border-color: #fff;
-            }
-            input[type="checkbox"].filled-in:checked + label:after {
-                border-color: $green;
-                background-color: $green;
-            }
-            
-        }
-        hr {
-            margin-top: 50px;
         }
     }
 

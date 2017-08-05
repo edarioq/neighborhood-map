@@ -45,20 +45,22 @@
         <section id="map-container">
                 <div class="row">
                     <div class="col s12 m3 map-filters">
-                        <div class="text-input">
+                        <div class="text-input-container">
                             <h2>Find a CoWorking Space</h2>
-                            <form id="search-form">
-                                <input id="gmaps-input" type="text" placeholder="Search...">
-                            </form>
+                                <input 
+                                    id="gmaps-input" 
+                                    type="text" 
+                                    placeholder="Search from the list..." 
+                                    autocomplete="off"
+                                    data-bind="textInput: filterLocation, valueUpdate: 'afterkeydown'"
+                                >
                         </div>
-                        <div class="list-view">
-                            <form id="filter-input">
-                                <div class="list-view-container">
-                                    <ul>
-                                        <li>adas</li>
-                                    </ul>
-                                </div>
-                            </form>
+                        <div class="list-view-container">
+                            <div class="list-view">
+                                <ul data-bind="foreach: locations">
+                                    <li data-bind="text: $data.name"></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col s12 m9 google-map">
@@ -69,7 +71,7 @@
 
         <footer>
             <div class="copyright">
-                &copy; Copyright 2017 - Made in Colombia
+                &copy; Copyright 2017 - Made with <3 in Colombia!
             </div>
         </footer>
 

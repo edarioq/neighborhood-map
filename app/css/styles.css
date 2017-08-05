@@ -6718,22 +6718,14 @@ nav {
       font-size: 1.7rem; }
     #map-container .map-filters input::placeholder {
       font-style: italic; }
-    #map-container .map-filters .text-input {
+    #map-container .map-filters .text-input-container {
       margin: 12px 0; }
-    #map-container .map-filters .list-view {
+    #map-container .map-filters .list-view-container {
       margin: 12px 0;
       overflow-y: scroll;
       display: block; }
-      #map-container .map-filters .list-view label {
-        font-size: 1.2rem;
-        color: #fff; }
-      #map-container .map-filters .list-view input[type=checkbox].filled-in:not(:checked) + label:after {
-        border-color: #fff; }
-      #map-container .map-filters .list-view input[type="checkbox"].filled-in:checked + label:after {
-        border-color: #50E3C2;
-        background-color: #50E3C2; }
-    #map-container .map-filters hr {
-      margin-top: 50px; }
+      #map-container .map-filters .list-view-container ul li {
+        list-style-type: bullet; }
   #map-container .google-map {
     height: calc(100vh - 64px - 64px);
     background-color: #f1f1f1;
