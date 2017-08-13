@@ -6708,31 +6708,27 @@ nav {
     color: #4990E2; }
     #map-container button:hover {
       color: #4A4A4A;
-      background-color: #F6A623; }
+      background-color: #50E3C2; }
   #map-container .map-filters {
     height: calc(100vh - 64px - 64px);
     color: #fff;
     background-color: #4990E2;
-    padding: 25px; }
+    padding: 25px 10px; }
     #map-container .map-filters h2 {
       font-size: 1.7rem; }
     #map-container .map-filters input::placeholder {
       font-style: italic; }
-    #map-container .map-filters .text-input {
+    #map-container .map-filters .text-input-container {
       margin: 12px 0; }
-    #map-container .map-filters .list-view {
+    #map-container .map-filters .list-view-container {
       margin: 12px 0;
-      overflow-y: scroll; }
-      #map-container .map-filters .list-view .list-view-set {
-        display: block; }
-        #map-container .map-filters .list-view .list-view-set label {
-          font-size: 1.2rem;
-          color: #fff; }
-        #map-container .map-filters .list-view .list-view-set input[type=checkbox].filled-in:not(:checked) + label:after {
-          border-color: #fff; }
-        #map-container .map-filters .list-view .list-view-set input[type="checkbox"].filled-in:checked + label:after {
-          border-color: #50E3C2;
-          background-color: #50E3C2; }
+      overflow-y: scroll;
+      display: block; }
+      #map-container .map-filters .list-view-container ul li {
+        list-style-type: circle;
+        padding: 5px; }
+        #map-container .map-filters .list-view-container ul li:hover {
+          cursor: pointer; }
   #map-container .google-map {
     height: calc(100vh - 64px - 64px);
     background-color: #f1f1f1;
@@ -6759,6 +6755,8 @@ footer {
       display: none; }
   #map-container {
     height: auto; }
+    #map-container .map-filters {
+      height: auto; }
   .row {
     margin-bottom: 0; }
   #map .map-filters {

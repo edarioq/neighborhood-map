@@ -33,38 +33,34 @@ nav {
         color: $blue;
         &:hover {
             color: $black;
-            background-color: $orange;
+            background-color: $green;
         }
     }
     .map-filters {
         height: calc(100vh - 64px - 64px);
         color: #fff;
         background-color: $blue;
-        padding: 25px;
+        padding: 25px 10px;
         h2 {
             font-size: 1.7rem;
         }
         input::placeholder {
             font-style: italic;
         }
-        .text-input {
+        .text-input-container {
             margin: 12px 0;
         }
-        .list-view {
+        .list-view-container {
             margin: 12px 0;
-            overflow-y: scroll;
-            .list-view-set {
-                display: block;
-                label {
-                    font-size: 1.2rem;
-                    color:#fff;
-                }
-                input[type=checkbox].filled-in:not(:checked) + label:after {
-                    border-color: #fff;
-                }
-                input[type="checkbox"].filled-in:checked + label:after {
-                    border-color: $green;
-                    background-color: $green;
+            overflow-y: scroll;         
+            display: block;
+            ul {
+                li {
+                    list-style-type: circle;
+                    padding: 5px;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -105,6 +101,9 @@ footer {
     }
     #map-container {
         height: auto;
+        .map-filters {
+            height: auto;
+        }
     }
     .row {
         margin-bottom: 0;
