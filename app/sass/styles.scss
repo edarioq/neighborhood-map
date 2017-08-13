@@ -40,7 +40,7 @@ nav {
         height: calc(100vh - 64px - 64px);
         color: #fff;
         background-color: $blue;
-        padding: 25px;
+        padding: 25px 10px;
         h2 {
             font-size: 1.7rem;
         }
@@ -56,7 +56,11 @@ nav {
             display: block;
             ul {
                 li {
-                    list-style-type: bullet;
+                    list-style-type: circle;
+                    padding: 5px;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -97,6 +101,9 @@ footer {
     }
     #map-container {
         height: auto;
+        .map-filters {
+            height: auto;
+        }
     }
     .row {
         margin-bottom: 0;

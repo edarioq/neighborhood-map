@@ -22,7 +22,7 @@
                 <h1>
                     <a href="/" class="brand-logo">
                          <i class="large material-icons">language</i>
-                         Neighboorhood Map Project<span> - Medellin, Colombia</span>
+                         Neighboorhood Map Project<span> - Parque Lleras in Medellin, Colombia</span>
                     </a>
                 </h1>
                 <a href="#" data-activates="mobile-demo" class="button-collapse">
@@ -46,19 +46,19 @@
                 <div class="row">
                     <div class="col s12 m3 map-filters">
                         <div class="text-input-container">
-                            <h2>Find a CoWorking Space</h2>
                                 <input 
-                                    id="gmaps-input" 
-                                    type="text" 
-                                    placeholder="Search from the list..." 
+                                    id="gmaps-input"
+                                    type="text"
+                                    placeholder="Search from the list..."
                                     autocomplete="off"
-                                    data-bind="textInput: filterLocation, valueUpdate: 'afterkeydown'"
+                                    autofocus
+                                    data-bind="textInput: searchFilter, valueUpdate: 'afterkeydown'"
                                 >
                         </div>
                         <div class="list-view-container">
                             <div class="list-view">
-                                <ul data-bind="foreach: locations">
-                                    <li data-bind="text: $data.name"></li>
+                                <ul data-bind="foreach: searchFilterLocation">
+                                    <li data-bind="text: name">Loading...</li>
                                 </ul>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
             </div>
         </footer>
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&&libraries=places&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&libraries=places&callback=init"></script>
 
         <!--build:js js/main.min.js -->
         <script type="text/javascript" src="js/materialize.min.js"></script>

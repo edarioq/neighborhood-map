@@ -6713,7 +6713,7 @@ nav {
     height: calc(100vh - 64px - 64px);
     color: #fff;
     background-color: #4990E2;
-    padding: 25px; }
+    padding: 25px 10px; }
     #map-container .map-filters h2 {
       font-size: 1.7rem; }
     #map-container .map-filters input::placeholder {
@@ -6725,7 +6725,10 @@ nav {
       overflow-y: scroll;
       display: block; }
       #map-container .map-filters .list-view-container ul li {
-        list-style-type: bullet; }
+        list-style-type: circle;
+        padding: 5px; }
+        #map-container .map-filters .list-view-container ul li:hover {
+          cursor: pointer; }
   #map-container .google-map {
     height: calc(100vh - 64px - 64px);
     background-color: #f1f1f1;
@@ -6752,6 +6755,8 @@ footer {
       display: none; }
   #map-container {
     height: auto; }
+    #map-container .map-filters {
+      height: auto; }
   .row {
     margin-bottom: 0; }
   #map .map-filters {
