@@ -18,21 +18,21 @@
             <nav>
                 <div class="nav-wrapper">
                 <h1>
-                    <a href="index.html" class="brand-logo">
+                    <a href="/" class="brand-logo">
                          <i class="large material-icons">language</i>
-                         Neighboorhood Map Project - Medellin, Colombia
+                         Neighboorhood Map Project<span> - Parque Lleras in Medellin, Colombia</span>
                     </a>
                 </h1>
                 <a href="#" data-activates="mobile-demo" class="button-collapse">
                     <i class="material-icons">menu</i>
                 </a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="active" href="index.html">Home</a></li>
+                        <li><a class="active" href="/">Home</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>
@@ -43,38 +43,22 @@
         <section id="map-container">
                 <div class="row">
                     <div class="col s12 m3 map-filters">
-                        <div class="text-input">
-                            <h2>Enter a location</h2>
-                            <form>
-                                <input data-bind="value: firstName" type="text" placeholder="Search...">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Search
-                                    <i class="material-icons right">search</i>
-                                </button>
-                            </form>
+                        <div class="text-input-container">
+                                <input 
+                                    id="gmaps-input"
+                                    type="text"
+                                    placeholder="Search from the list..."
+                                    autocomplete="off"
+                                    autofocus
+                                    data-bind="textInput: searchFilter, valueUpdate: 'afterkeydown'"
+                                >
                         </div>
-                        <div class="list-view">
-                            <h2>Filter by Location</h2>
-                            <form>
-                                <div class="list-view-set">
-                                    <input class="filled-in" id="bars" name="bars" type="checkbox">
-                                    <label for="bars">Bars</label>
-                                </div>
-
-                                <div class="list-view-set">
-                                    <input class="filled-in" id="gyms" name="gyms" type="checkbox">
-                                    <label for="gyms">Gyms</label>
-                                </div>
-
-                                <div class="list-view-set">
-                                    <input class="filled-in" id="parks" name="parks" type="checkbox">
-                                    <label for="parks">Parks</label>
-                                </div>
-
-                                <div class="list-view-set">
-                                    <input class="filled-in" id="restaurants" name="restaurants" type="checkbox">
-                                    <label for="restaurants">Restaurants</label>
-                                </div>
-                            </form>
+                        <div class="list-view-container">
+                            <div class="list-view">
+                                <ul data-bind="foreach: searchFilterLocation">
+                                    <li data-bind="text: name, click: showInfoWindow">Loading...</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col s12 m9 google-map">
@@ -85,11 +69,11 @@
 
         <footer>
             <div class="copyright">
-                &copy; Copyright 2017 - Made in Colombia
+                &copy; Copyright 2017 - Made with <3 in Colombia!
             </div>
         </footer>
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&libraries=places&callback=init"></script>
 
         <script src="js/main.min.js"></script>
 
