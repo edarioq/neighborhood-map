@@ -59,6 +59,8 @@ var map;
  */
 
 var CoworkingSpace = function (aCoworkingSpace) {
+    
+    var self = this;
 
     // A CoWorking Space default data
     this.name = ko.observable(aCoworkingSpace.name);
@@ -73,6 +75,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
     
     // Control the visiblity of a marker
     this.markerIsVisible = ko.observable(true);
+
     this.loadMarker = ko.computed(function() {
 		if(this.markerIsVisible()) {
             this.marker.setMap(map);
@@ -84,11 +87,26 @@ var CoworkingSpace = function (aCoworkingSpace) {
     }, this);
 
     // Add information and animations to a marker when clicked
-    this.marker.addListener('click', function(){
-        console.log('Marker clicked');
+    var contentString =
+        '<div id="marker-content">'+
+            '<h1 class="marker-name">' + this.name() + '</h1>'+
+            '<div id="marker-body-content">'+
+                '<p>' + this.name() + ': Is some text describing this location.</p>'+
+            '</div>'+
+        '</div>';
 
-	});
+    this.infoWindow = new google.maps.InfoWindow({
+        maxWidth: 400,
+        content: contentString
+    });
+
+    this.marker.addListener('click', function(){
+        self.infoWindow.open(map, this);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+    });
+        
     
+
 };
 
 
@@ -132,7 +150,7 @@ var viewModel = function() {
 		if (input === empty) {
             // Show locations
             self.locationsArray().forEach(function(coworkingSpace){
-				coworkingSpace.markerIsVisible(true);
+                coworkingSpace.markerIsVisible(true);
 			});
 			return self.locationsArray();
 		} else {
@@ -145,6 +163,12 @@ var viewModel = function() {
 		}
     }, self);
 
+    // Add a click bind to show the content window
+    this.showInfoWindow = function() {
+        this.infoWindow.open(map, this.marker);
+        this.marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+
 };
 
 
@@ -154,5 +178,6 @@ var viewModel = function() {
 
 function init() {
     $(".button-collapse").sideNav();
-    ko.applyBindings(viewModel);    
+    ko.applyBindings(viewModel);
+    console.log('App started!');
 }
