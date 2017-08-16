@@ -14,6 +14,8 @@ Then to have a production ready build, use:
 gulp build
 ```
 
+You can visit the live site by going to <a href="https://edarioq.github.io/neighborhood-map/app/">https://edarioq.github.io/neighborhood-map/app/</a>
+
 ## Features
 This project showcases some popular areas in Medellin, Colombia. It includes:
 
@@ -21,7 +23,8 @@ This project showcases some popular areas in Medellin, Colombia. It includes:
 2. Third-party data to showcase these attractions
 3. A great UX experience with custom navigation filters
 
-## Udacity Project Specification
+
+# Udacity Project Specification
 The following is the project rubric.
 
 ### Interface Design

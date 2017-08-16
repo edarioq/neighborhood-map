@@ -55,7 +55,7 @@ var locations = [
 var map;
 
 /*
- * CoWorking space constructor, this contains and binds a Coworking space's data in one place
+ * CoWorking space constructor, this contains a Coworking space's data all in one place
  */
 
 var CoworkingSpace = function (aCoworkingSpace) {
@@ -86,32 +86,76 @@ var CoworkingSpace = function (aCoworkingSpace) {
         }
     }, this);
 
+    // Foursquare "Userless Server Integrations"
+    this.fqLat = aCoworkingSpace.lat;
+    this.fqLng = aCoworkingSpace.lng;
+    this.fqClientId = 'NBZPGBLYTTAJCEHMK01X4JVTIBVQL3WBLE3RHEMN2RRFYU0X';
+    this.fqClientSecret = '4AGMLAAI23FD3QZ24OSV3XETM4D1W1NUHVH0KOC3FFF5ZFOT';
+    this.fqDate = '20170915'
+    this.fqVenue = aCoworkingSpace.name;
+    this.address;
+    this.fsURL = 'https://api.foursquare.com/v2/venues/search?ll='+ 
+                    this.fqLat + ',' + 
+                    this.fqLng + '&client_id=' + 
+                    this.fqClientId + '&client_secret=' + 
+                    this.fqClientSecret + '&v=' + 
+                    this.fqDate + '&query=' + 
+                    this.fqVenue;
+        
+    $.getJSON(this.fsURL).done(function(data) {
+        var venues = data.response.venues[0];
+        // Check that a venue exists in Foursquare
+        if (typeof venues !== 'undefined') {
+            this.address = venues.location.address;
+        }
+        // If not provide a fall back error string 
+        else {
+            this.address = 'No data available.';
+        } 
+    
+    }).fail(function() {
+        console.log('Error');
+    });
+
     // Add information and animations to a marker when clicked
-    var contentString =
+    this.contentString =
         '<div id="marker-content">'+
             '<h1 class="marker-name">' + this.name() + '</h1>'+
             '<div id="marker-body-content">'+
-                '<p>' + this.name() + ': Is some text describing this location.</p>'+
+                '<p>Address: ' + this.address + '</p>'+
             '</div>'+
         '</div>';
 
+    // Create the Gmaps info window
     this.infoWindow = new google.maps.InfoWindow({
         maxWidth: 400,
-        content: contentString
+        content: this.contentString
     });
 
+    // Toogle the content window for each marker
     this.marker.addListener('click', function(){
         self.infoWindow.open(map, this);
         this.setAnimation(google.maps.Animation.BOUNCE);
     });
         
-    
+    // Add a click bind to show the content window
+    this.showInfoWindow = function() {
+        this.infoWindow.open(map, this.marker);
+        this.marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
 
+
+    
 };
 
 
+var fousquare = function() {
+    
+}
+
+
 /*
- * Define KO's ViewModel
+ * Define KO's ViewModel, this holds all the bindings to the view
  */
 
 var viewModel = function() {
@@ -163,12 +207,6 @@ var viewModel = function() {
 		}
     }, self);
 
-    // Add a click bind to show the content window
-    this.showInfoWindow = function() {
-        this.infoWindow.open(map, this.marker);
-        this.marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-
 };
 
 
@@ -177,7 +215,11 @@ var viewModel = function() {
  */
 
 function init() {
+    // Activate Materialize CSS' sidenav with jQuery
     $(".button-collapse").sideNav();
+
+    // KO's apply binding
     ko.applyBindings(viewModel);
+
     console.log('App started!');
 }
