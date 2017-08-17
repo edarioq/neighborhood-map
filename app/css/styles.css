@@ -6740,6 +6740,8 @@ nav {
     margin: 0; }
     #map-container .google-map .marker-name {
       font-size: 1.4rem; }
+    #map-container .google-map .marker-address {
+      font-weight: 500; }
   #map-container #map {
     height: calc(100vh - 64px - 64px); }
 

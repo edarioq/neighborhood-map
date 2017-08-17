@@ -93,7 +93,6 @@ var CoworkingSpace = function (aCoworkingSpace) {
     this.fqClientSecret = '4AGMLAAI23FD3QZ24OSV3XETM4D1W1NUHVH0KOC3FFF5ZFOT';
     this.fqDate = '20170915'
     this.fqVenue = aCoworkingSpace.name;
-    this.address;
     this.fsURL = 'https://api.foursquare.com/v2/venues/search?ll='+ 
                     this.fqLat + ',' + 
                     this.fqLng + '&client_id=' + 
@@ -101,28 +100,37 @@ var CoworkingSpace = function (aCoworkingSpace) {
                     this.fqClientSecret + '&v=' + 
                     this.fqDate + '&query=' + 
                     this.fqVenue;
-        
-    $.getJSON(this.fsURL).done(function(data) {
+    
+    var address;
+
+
+    address = 'stuff'
+    $.getJSON(fsURL).done(function(data) {
         var venues = data.response.venues[0];
         // Check that a venue exists in Foursquare
         if (typeof venues !== 'undefined') {
-            this.address = venues.location.address;
+            address = venues.location.address;
+/*             description = venues.categories[0].name; */
+                console.log('This works! ' + address);
         }
         // If not provide a fall back error string 
         else {
-            this.address = 'No data available.';
+            address = 'The address is not available.';
+            /* description = 'A description is not available.'; */
         } 
     
     }).fail(function() {
         console.log('Error');
     });
-
+    
+    
     // Add information and animations to a marker when clicked
     this.contentString =
         '<div id="marker-content">'+
             '<h1 class="marker-name">' + this.name() + '</h1>'+
             '<div id="marker-body-content">'+
-                '<p>Address: ' + this.address + '</p>'+
+                '<p class="marker-address">' + address + '</p>'+
+                '<p class="marker-desc">' + address + '</p>'+
             '</div>'+
         '</div>';
 
