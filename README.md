@@ -25,7 +25,7 @@ This project showcases some popular areas in Medellin, Colombia. It includes:
 
 
 # Udacity Project Specification
-The following is the project rubric.
+**The following is the project rubric. Use this to double check the code and verify that everything is on par with all requirements.**
 
 ### Interface Design
 1. All application components render on-screen in a responsive manner.
