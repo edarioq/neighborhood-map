@@ -53,6 +53,8 @@ var locations = [
 
 // Define the global scope
 var map;
+var infowindow;
+
 
 /*
  * CoWorking space constructor, this contains a Coworking space's data all in one place
@@ -100,56 +102,69 @@ var CoworkingSpace = function (aCoworkingSpace) {
                     this.fqClientSecret + '&v=' + 
                     this.fqDate + '&query=' + 
                     this.fqVenue;
-    
+   
+
+    var name;
     var address;
+    var desc;
 
+    var fqData = $.ajax({
+        'type': 'get',
+        'url': this.fsURL,
+        'success': function(data) {
+            var venues = data.response.venues[0];
+            // Check that a venue exists in Foursquare
+            if (typeof venues !== 'undefined') {
+                // Check that data exists for a venue in Foursquare
 
-    address = 'stuff'
-    $.getJSON(fsURL).done(function(data) {
-        var venues = data.response.venues[0];
-        // Check that a venue exists in Foursquare
-        if (typeof venues !== 'undefined') {
-            address = venues.location.address;
-/*             description = venues.categories[0].name; */
-                console.log('This works! ' + address);
+                name = venues.name;
+                desc = venues.categories[0].name;
+                address = venues.location.address;
+
+                var fqResult = new Array();
+                fqResult.push(address);
+                
+                fqResult.forEach(function() {
+                    if (fqResult === 'undefined') {
+                        fqResult === 'stuff';
+                    }
+                })
+                console.log(fqResult);
+            }     
         }
-        // If not provide a fall back error string 
-        else {
-            address = 'The address is not available.';
-            /* description = 'A description is not available.'; */
-        } 
-    
-    }).fail(function() {
-        console.log('Error');
     });
     
-    
-    // Add information and animations to a marker when clicked
-    this.contentString =
-        '<div id="marker-content">'+
-            '<h1 class="marker-name">' + this.name() + '</h1>'+
-            '<div id="marker-body-content">'+
-                '<p class="marker-address">' + address + '</p>'+
-                '<p class="marker-desc">' + address + '</p>'+
-            '</div>'+
-        '</div>';
-
-    // Create the Gmaps info window
-    this.infoWindow = new google.maps.InfoWindow({
-        maxWidth: 400,
-        content: this.contentString
-    });
-
     // Toogle the content window for each marker
+    infoWindow = new google.maps.InfoWindow();
     this.marker.addListener('click', function(){
-        self.infoWindow.open(map, this);
+        fqData.done(function() {
+            infoWindow.setContent(
+                '<div id="marker-content">'+
+                '<h1 class="marker-name">' + name + '</h1>'+
+                '<div id="marker-body-content">'+
+                    '<p class="marker-address">' + address + '</p>'+
+                    '<p class="marker-desc">' + desc + '</p>'+
+                '</div>'+
+            '</div>'
+            )
+        })
+    
+        infoWindow.open(map, this);
         this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+            self.marker.setAnimation(null);
+        }, 800);
+
     });
         
     // Add a click bind to show the content window
     this.showInfoWindow = function() {
-        this.infoWindow.open(map, this.marker);
+        infoWindow.setContent(self.contentString)
+        infoWindow.open(map, this.marker);
         this.marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+            self.marker.setAnimation(null);
+        }, 800);
     }
 
 
