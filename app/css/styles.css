@@ -6745,6 +6745,13 @@ nav {
   #map-container #map {
     height: calc(100vh - 64px - 64px); }
 
+.error-msg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 50px;
+  text-align: center; }
+
 footer {
   height: 64px;
   background-color: #4A4A4A;

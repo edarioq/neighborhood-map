@@ -104,6 +104,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
                     this.fqVenue;
    
 
+    // Get foursquare data!
     var name;
     var address;
     var desc;
@@ -112,23 +113,28 @@ var CoworkingSpace = function (aCoworkingSpace) {
         'type': 'get',
         'url': this.fsURL,
         'success': function(data) {
-            var venues = data.response.venues[0];
+            var venues = data.response.venues[0];;
             // Check that a venue exists in Foursquare
             if (typeof venues !== 'undefined') {
-                // Check that data exists for a venue in Foursquare
-                name = venues.name;
                 address = venues.location.address;
-                desc = venues.categories[0].name;
-                
-            } else {
-                name = 'Name is not available';
-                address = 'The address is not available';
-                desc = 'No description Available';
+                desc = venues.categories[0].name; 
+                // Check if there data for a specific property
+                if (typeof address === 'undefined') {
+                    address = 'No address available yet.';
+                }
+                // Check if there data for a specific property
+                if (typeof desc === 'undefined') {
+                    desc = 'No description available yet.';
+                }
             }
-            console.log(desc)
+            // Else tell the user this listing doesn't appear in FQ 
+            else {
+                address = 'Sorry, there is no data available';
+                desc = 'Sorry, there is no data available';
+            }
         }
     });
-    
+
     // Toogle the content window for each marker
     infoWindow = new google.maps.InfoWindow();
     this.marker.addListener('click', function(){
@@ -136,7 +142,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
         fqData.done(function() {
             infoWindow.setContent(
                 '<div id="marker-content">'+
-                '<h1 class="marker-name">' + name + '</h1>'+
+                '<h1 class="marker-name">' + self.name() + '</h1>'+
                 '<div id="marker-body-content">'+
                     '<p class="marker-address">' + address + '</p>'+
                     '<p class="marker-desc">' + desc + '</p>'+
@@ -144,6 +150,10 @@ var CoworkingSpace = function (aCoworkingSpace) {
             '</div>'
             )
             
+        })
+
+        fqData.fail(function() {
+            alert('Oops! Foursquare seems to be down, please try again.');
         })
     
         infoWindow.open(map, this);
@@ -154,34 +164,32 @@ var CoworkingSpace = function (aCoworkingSpace) {
 
     });
 
-/*     if (self.Marker.likes === "" || self.Marker.likes === undefined) {
-        return "No likes";
-    } else {
-        return self.currentMarker.likes;
-    } */
-
     // Add a click bind to show the content window
     this.showInfoWindow = function() {
+
         fqData.done(function() {
             infoWindow.setContent(
                 '<div id="marker-content">'+
-                '<h1 class="marker-name">' + name + '</h1>'+
+                '<h1 class="marker-name">' + self.name() + '</h1>'+
                 '<div id="marker-body-content">'+
                     '<p class="marker-address">' + address + '</p>'+
                     '<p class="marker-desc">' + desc + '</p>'+
                 '</div>'+
             '</div>'
             )
-        })
+        });
+
+        fqData.fail(function() {
+            alert('Oops! Foursquare seems to be down, please try again.');
+        });
+
         infoWindow.open(map, this.marker);
         this.marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(function() {
             self.marker.setAnimation(null);
         }, 800);
     }
-
-
-    
+ 
 };
 
 
@@ -255,3 +263,14 @@ function init() {
 
     console.log('App started!');
 }
+
+/* Defining the error handling function for google map */
+var errorLoadingGMaps = function () {
+    var errorMsg = "";
+
+    errorMsg += '<div class="error-msg">';
+    errorMsg += 'Oops! There seems to have been an error loading Google Maps, please try again later.';
+    errorMsg += '</div>';
+
+    $("#map").append(errorMsg);
+};

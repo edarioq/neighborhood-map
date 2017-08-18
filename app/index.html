@@ -65,6 +65,7 @@
                     </div>
                     <div class="col s12 m9 google-map">
                         <div id="map"></div>
+                        <div id="error">Oops! There was an error loading the map, please try again later!</div>
                     </div>
                 </div>            
         </section>
@@ -82,7 +83,7 @@
         <script src="js/main.js"></script>
         <!-- endbuild -->
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&libraries=places&callback=init"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&libraries=places&callback=init" onerror="errorLoadingGMaps()"></script>
 
     </body>
 </html>

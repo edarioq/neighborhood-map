@@ -89,6 +89,14 @@ nav {
     }
 }
 
+.error-msg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 50px;
+    text-align: center;
+}
+
 footer {
     height: 64px;
     background-color: $black;
