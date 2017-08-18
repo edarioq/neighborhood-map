@@ -79,11 +79,22 @@ nav {
         .marker-name {
             font-size: 1.4rem;
         }
+        .marker-address {
+            font-weight: 500;
+        }
     }
 
     #map {
         height: calc(100vh - 64px - 64px);
     }
+}
+
+.error-msg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 50px;
+    text-align: center;
 }
 
 footer {
