@@ -20,7 +20,7 @@
                 <h1>
                     <a href="/" class="brand-logo">
                          <i class="large material-icons">language</i>
-                         Neighboorhood Map Project<span> - Parque Lleras in Medellin, Colombia</span>
+                         Neighborhood Map Project<span> - Parque Lleras in Medellin, Colombia</span>
                     </a>
                 </h1>
                 <a href="#" data-activates="mobile-demo" class="button-collapse">
@@ -63,6 +63,7 @@
                     </div>
                     <div class="col s12 m9 google-map">
                         <div id="map"></div>
+                        <div id="error">Oops! There was an error loading the map, please try again later!</div>
                     </div>
                 </div>            
         </section>
@@ -73,9 +74,10 @@
             </div>
         </footer>
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&libraries=places&callback=init"></script>
-
+        
         <script src="js/main.min.js"></script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLLIbn5Y68n9iEqJYIceSL6V85AGk0IM&libraries=places&callback=init" onerror="errorLoadingGMaps()"></script>
 
     </body>
 </html>

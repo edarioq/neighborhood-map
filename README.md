@@ -14,7 +14,7 @@ Then to have a production ready build, use:
 gulp build
 ```
 
-You can visit the live site by going to <a href="https://edarioq.github.io/neighborhood-map/app/" target="_blank">https://edarioq.github.io/neighborhood-map/app/</a>
+You can visit the live site by going to <a href="https://edarioq.github.io/neighborhood-map/app/dist/" target="_blank">https://edarioq.github.io/neighborhood-map/app/dist/</a>
 
 ## Features
 This project showcases some popular areas in Medellin, Colombia. It includes:
