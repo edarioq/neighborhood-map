@@ -23,7 +23,7 @@ var locations = [
         lng: -75.573853,
     },
     {
-        name: 'NODO Coworking - Astorga',
+        name: 'NODO Coworking',
         lat: 6.2094639,
         lng: -75.5763566,
     },
@@ -38,7 +38,7 @@ var locations = [
         lng: -75.5687043,
     },
     {
-        name: 'Global Express Travel & Business Center',
+        name: 'Global Express',
         lat: 6.2091942,
         lng: -75.5686613,
     },
@@ -116,27 +116,52 @@ var CoworkingSpace = function (aCoworkingSpace) {
             // Check that a venue exists in Foursquare
             if (typeof venues !== 'undefined') {
                 // Check that data exists for a venue in Foursquare
-
                 name = venues.name;
-                desc = venues.categories[0].name;
                 address = venues.location.address;
-
-                var fqResult = new Array();
-                fqResult.push(address);
+                desc = venues.categories[0].name;
                 
-                fqResult.forEach(function() {
-                    if (fqResult === 'undefined') {
-                        fqResult === 'stuff';
-                    }
-                })
-                console.log(fqResult);
-            }     
+            } else {
+                name = 'Name is not available';
+                address = 'The address is not available';
+                desc = 'No description Available';
+            }
+            console.log(desc)
         }
     });
     
     // Toogle the content window for each marker
     infoWindow = new google.maps.InfoWindow();
     this.marker.addListener('click', function(){
+        
+        fqData.done(function() {
+            infoWindow.setContent(
+                '<div id="marker-content">'+
+                '<h1 class="marker-name">' + name + '</h1>'+
+                '<div id="marker-body-content">'+
+                    '<p class="marker-address">' + address + '</p>'+
+                    '<p class="marker-desc">' + desc + '</p>'+
+                '</div>'+
+            '</div>'
+            )
+            
+        })
+    
+        infoWindow.open(map, this);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+            self.marker.setAnimation(null);
+        }, 800);
+
+    });
+
+/*     if (self.Marker.likes === "" || self.Marker.likes === undefined) {
+        return "No likes";
+    } else {
+        return self.currentMarker.likes;
+    } */
+
+    // Add a click bind to show the content window
+    this.showInfoWindow = function() {
         fqData.done(function() {
             infoWindow.setContent(
                 '<div id="marker-content">'+
@@ -148,18 +173,6 @@ var CoworkingSpace = function (aCoworkingSpace) {
             '</div>'
             )
         })
-    
-        infoWindow.open(map, this);
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout(function() {
-            self.marker.setAnimation(null);
-        }, 800);
-
-    });
-        
-    // Add a click bind to show the content window
-    this.showInfoWindow = function() {
-        infoWindow.setContent(self.contentString)
         infoWindow.open(map, this.marker);
         this.marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(function() {
@@ -171,10 +184,6 @@ var CoworkingSpace = function (aCoworkingSpace) {
     
 };
 
-
-var fousquare = function() {
-    
-}
 
 
 /*
