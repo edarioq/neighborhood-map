@@ -93,7 +93,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
     this.fqLng = aCoworkingSpace.lng;
     this.fqClientId = 'NBZPGBLYTTAJCEHMK01X4JVTIBVQL3WBLE3RHEMN2RRFYU0X';
     this.fqClientSecret = '4AGMLAAI23FD3QZ24OSV3XETM4D1W1NUHVH0KOC3FFF5ZFOT';
-    this.fqDate = '20170915'
+    this.fqDate = '20170915';
     this.fqVenue = aCoworkingSpace.name;
     this.fsURL = 'https://api.foursquare.com/v2/venues/search?ll='+ 
                     this.fqLat + ',' + 
@@ -113,7 +113,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
         'type': 'get',
         'url': this.fsURL,
         'success': function(data) {
-            var venues = data.response.venues[0];;
+            var venues = data.response.venues[0];
             // Check that a venue exists in Foursquare
             if (typeof venues !== 'undefined') {
                 address = venues.location.address;
@@ -148,13 +148,13 @@ var CoworkingSpace = function (aCoworkingSpace) {
                     '<p class="marker-desc">' + desc + '</p>'+
                 '</div>'+
             '</div>'
-            )
+            );
             
-        })
+        });
 
         fqData.fail(function() {
             alert('Oops! Foursquare seems to be down, please try again.');
-        })
+        });
     
         infoWindow.open(map, this);
         this.setAnimation(google.maps.Animation.BOUNCE);
@@ -176,7 +176,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
                     '<p class="marker-desc">' + desc + '</p>'+
                 '</div>'+
             '</div>'
-            )
+            );
         });
 
         fqData.fail(function() {
@@ -188,7 +188,7 @@ var CoworkingSpace = function (aCoworkingSpace) {
         setTimeout(function() {
             self.marker.setAnimation(null);
         }, 800);
-    }
+    };
  
 };
 
