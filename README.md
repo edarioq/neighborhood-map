@@ -17,7 +17,7 @@ gulp build
 You can visit the live site by going to <a href="https://edarioq.github.io/neighborhood-map/app/" target="_blank">https://edarioq.github.io/neighborhood-map/app/</a>
 
 ## Features
-This project showcases some popular areas in Medellin, Colombia. From a technical perpsective, some things to note are:
+This project showcases some popular Coworking office spaces in Medellin, Colombia around the area known as Parque Lleras in El Poblado. Some things to note (from a technical perpsective) are:
 
 1. Built using [Knockout.js ] (http://knockoutjs.com/)
 2. Integrated with third-party data from Foursquareto using an asynchronous request (displaying the name, address, and description)
