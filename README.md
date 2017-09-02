@@ -19,7 +19,7 @@ You can visit the live site by going to <a href="https://edarioq.github.io/neigh
 ## Features
 This project showcases some popular Coworking office spaces in Medellin, Colombia around the area known as Parque Lleras in El Poblado. Some things to note (from a technical perpsective) are:
 
-1. Built using [Knockout.js ] (http://knockoutjs.com/)
+1. Built using [Knockout.js ](http://knockoutjs.com/)
 2. Integrated with third-party data from Foursquareto using an asynchronous request (displaying the name, address, and description)
 3. A responsive UX experience with custom navigation filters (using Materialize CSS)
 4. A search filter and clickable list, these are bound to the data model using Knockout MVVM
